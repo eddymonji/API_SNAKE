@@ -1,7 +1,8 @@
 #!/bin/bash
 # un autre moyen que j'ai trouvé sur internet pour inclure les fichiers 
 
-
+pommex=0
+pommey=0
 generer_pomme() {
    map=$1
    HAUTEUR=$(taille_H $map)
@@ -14,17 +15,19 @@ generer_pomme() {
     echo "is_collision $map $x $y"
     iscollision=$(is_collision $map $x $y)
 
-    if [ $is_collision -eq 1 ]
+    if [ $iscollision -eq 1 ]
      then
         generer_pomme  $map
 
     else
+    isnake=$(is_snake $map $x $y)
 
-      if [ $is_snake -eq 1 ]
+      if [ $isnake -eq 1 ]
         then
          generer_pomme  $map
       else
-         pomme=("$x" "$y")
+         pommex="$x"
+         pommey="$y"
       fi
     fi
 }
