@@ -28,6 +28,8 @@ generer_pomme() {
       else
          pommex="$x"
          pommey="$y"
+         tput cup $x $y
+         echo "*"
       fi
     fi
 }
