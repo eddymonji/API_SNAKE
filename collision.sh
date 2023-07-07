@@ -46,6 +46,21 @@ echo "0"
 
 }
 
-is_snake  7 2
+#is_snake  7 2
 
+
+function is_pomme {
+pos_x=${listsnakex[0]}
+pos_y=${listsnakey[0]}
+
+  if [ $pommex -eq $pos_x &&  $pommey -eq $pos_y ]
+  then
+    #La pomme se trouve a cette position
+     echo "0"
+     return
+   fi
+#Le serpent ne se trouve pas à cette position
+echo "1"
+
+}
 

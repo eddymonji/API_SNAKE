@@ -8,6 +8,8 @@ source control.sh
 source taille_H.sh
 source taille_L.sh
 source afficher_meilleur_score.sh
+source affichage_snake.sh
+source snake.sh
 
 echo "######_Bienvenue dans le jeu snake_#####"
 
