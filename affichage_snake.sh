@@ -13,8 +13,3 @@ done
 
 }
 
-listsnakex=(5 6 7 8)
-listsnakey=(8 8 8 8)
-
-clear
-affichage_snake

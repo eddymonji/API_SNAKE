@@ -13,6 +13,8 @@ function deplacement_snake {
     deplacement
     affichage_map $1
     affichage_snake
+    tput cup $pommex $pommey
+    echo "*"
   done
 }
 

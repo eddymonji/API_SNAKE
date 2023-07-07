@@ -33,5 +33,5 @@ generer_pomme() {
       fi
     fi
 }
-generer_pomme "$1"
+
 
