@@ -1,5 +1,7 @@
 #! /bin/bash
 
+source lancer_apres_choix_niveau.sh
+
 echo "######_Bienvenue dans le jeu snake_#####"
 
 while [ 1 = 1 ]
@@ -19,12 +21,14 @@ do
   # Si choix = 1 --> démarrer jeu
   1)  #fonction qui permet de générer le map
     echo "Le jeu snake va bientôt démarrer"
+    lancer_apres_choix_niveau
     break
     ;;
   #Si choix = 2 --> sélectionner le meilleur score
   2)  #fonction qui stocke les scores
     echo "Le meilleur score est celui d'Aziz égale à 150 pommes"
-    break
+       
+break
     ;;
   #Si choix = 3 --> quitter la partie
   3) exit;;
