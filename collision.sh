@@ -19,7 +19,7 @@ y=$3
     fi
 }
 
-
+#Fonction qui dit se le position se trouve à une cordonnée 
 function is_snake {
 
 pos_x=$1
