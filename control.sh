@@ -21,35 +21,25 @@ function deplacement {
 
   if [ "$touche" = "z" ]
   then
-    co=${listsnakey[0]}
-    unset listsnakey[-1]
-    listsnakey=($(($co-1)) ${listsnakey[@]})
-
-    oc=${listsnakex[0]}
-    unset listsnakex[-1]
-    listsnakex=($oc ${listsnakex[@]})
-
-  elif [ "$touche" = "q" ]
-  then
     co=${listsnakex[0]}
     unset listsnakex[-1]
     listsnakex=($(($co-1)) ${listsnakex[@]})
 
     oc=${listsnakey[0]}
     unset listsnakey[-1]
-    listsnakey=($(($oc)) ${listsnakey[@]})
+    listsnakey=($oc ${listsnakey[@]})
 
-  elif [ "$touche" = "s" ]
+  elif [ "$touche" = "q" ]
   then
     co=${listsnakey[0]}
     unset listsnakey[-1]
-    listsnakey=($(($co+1)) ${listsnakey[@]})
+    listsnakey=($(($co-1)) ${listsnakey[@]})
 
     oc=${listsnakex[0]}
     unset listsnakex[-1]
     listsnakex=($(($oc)) ${listsnakex[@]})
 
-  elif  [ "$touche" = "d" ]
+  elif [ "$touche" = "s" ]
   then
     co=${listsnakex[0]}
     unset listsnakex[-1]
@@ -59,13 +49,17 @@ function deplacement {
     unset listsnakey[-1]
     listsnakey=($(($oc)) ${listsnakey[@]})
 
+  elif  [ "$touche" = "d" ]
+  then
+    co=${listsnakey[0]}
+    unset listsnakey[-1]
+    listsnakey=($(($co+1)) ${listsnakey[@]})
+
+    oc=${listsnakex[0]}
+    unset listsnakex[-1]
+    listsnakex=($(($oc)) ${listsnakex[@]})
+
   fi
   echo "${listsnakex[@]}" "${listsnakey[@]}"
 }
 
-while [ 1 ]
-do
-  lecture
-  echo $touche
-  deplacement
-done
