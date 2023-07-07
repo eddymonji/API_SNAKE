@@ -23,7 +23,6 @@ generer_pomme() {
     if [ $iscollision -eq 1 ]
      then
         pomme=("$x" "$y")
-        echo "Nouvelle pomme au pt ($x $y)"
    else
         generer_pomme  $map
     fi
