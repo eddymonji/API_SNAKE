@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 
+last_touche="z"
+touche=""
+
 function lecture {
-  read -rsn1 var
-  while [ "$var" != "z" ]&&[ "$var" != "q" ]&&[ "$var" != "s" ]&&[ "$var" != "d" ]
-  do
-    read -rsn1 var
-  done
-  echo $var
+  read -rsn1 -t 1 var
+  if [ "$var" != "z" ]&&[ "$var" != "q" ]&&[ "$var" != "s" ]&&[ "$var" != "d" ]
+  then
+    var=$last_touche
+  else
+    last_touche=$var
+  fi
+  touche=$var
 }
 
 declare -a listsnakex=(7 8 9)
 declare -a listsnakey=(20 20 20)
 
 function deplacement {
-  touche=$1
 
   if [ "$touche" = "z" ]
   then
@@ -54,13 +58,14 @@ function deplacement {
     oc=${listsnakey[0]}
     unset listsnakey[-1]
     listsnakey=($(($oc)) ${listsnakey[@]})
+
   fi
   echo "${listsnakex[@]}" "${listsnakey[@]}"
 }
 
 while [ 1 ]
 do
-  touche=$(lecture)
+  lecture
   echo $touche
-  deplacement $touche
+  deplacement
 done
