@@ -50,8 +50,8 @@ echo "0"
 
 
 function is_pomme {
-pos_x=$1
-pos_y=$2
+pos_x=${listsnakex[0]}
+pos_y=${listsnakey[0]}
 
   if [ $pommex -eq $pos_x &&  $pommey -eq $pos_y ]
   then
