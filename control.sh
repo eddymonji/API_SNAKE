@@ -13,42 +13,54 @@ declare -a listsnakex=(7 8 9)
 declare -a listsnakey=(20 20 20)
 
 function deplacement {
-  touche=$3
-  declare -a nlistsnakex
-  declare -a nlistsnakey
+  touche=$1
+
   if [ "$touche" = "z" ]
   then
-    co=${$2[0]}
-    nlistsnakey[0]=$(($co-1))
-  elif [ "$3" = "q" ]
+    co=${listsnakey[0]}
+    unset listsnakey[-1]
+    listsnakey=($(($co-1)) ${listsnakey[@]})
+
+    oc=${listsnakex[0]}
+    unset listsnakex[-1]
+    listsnakex=($oc ${listsnakex[@]})
+
+  elif [ "$touche" = "q" ]
   then
-    nlistsnakex[0]=$(($1[0]-1))
-  elif [ "$3" = "s" ]
+    co=${listsnakex[0]}
+    unset listsnakex[-1]
+    listsnakex=($(($co-1)) ${listsnakex[@]})
+
+    oc=${listsnakey[0]}
+    unset listsnakey[-1]
+    listsnakey=($(($oc)) ${listsnakey[@]})
+
+  elif [ "$touche" = "s" ]
   then
-    nlistsnakey[0]=$(($2[0]+1))
-  elif  [ "$3" = "d" ]
+    co=${listsnakey[0]}
+    unset listsnakey[-1]
+    listsnakey=($(($co+1)) ${listsnakey[@]})
+
+    oc=${listsnakex[0]}
+    unset listsnakex[-1]
+    listsnakex=($(($oc)) ${listsnakex[@]})
+
+  elif  [ "$touche" = "d" ]
   then
-    nlistsnakex[0]=$(($1[0]+1))
+    co=${listsnakex[0]}
+    unset listsnakex[-1]
+    listsnakex=($(($co+1)) ${listsnakex[@]})
+
+    oc=${listsnakey[0]}
+    unset listsnakey[-1]
+    listsnakey=($(($oc)) ${listsnakey[@]})
   fi
-  for i in {1..$((${#$1[@]}-1))}
-  do
-    nlistsnakex[$i]=$1[$(($i-1))]
-  done
-  for i in {1..$((${#$2[@]}-1))}
-  do
-    nlistsnakey[$i]=$2[$(($i-1))]
-  done
-  $listsnakex=$nlistsnakex
-  $listsnakey=$nlistsnakey
-  echo "${listsnakex[@]}"
-  echo "${listsnakey[@]}"
+  echo "${listsnakex[@]}" "${listsnakey[@]}"
 }
 
 while [ 1 ]
 do
   touche=$(lecture)
   echo $touche
-  echo "${listsnakex[@]}"
-  echo "${listsnakey[@]}"
-  deplacement $listsnakex $listsnakey $touche
+  deplacement $touche
 done
