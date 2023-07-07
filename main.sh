@@ -1,6 +1,12 @@
 #! /bin/bash
 
 source lancer_apres_choix_niveau.sh
+source collision.sh
+source pomme.sh
+source afficher_score.sh
+source control.sh
+source taille_H.sh
+source taille_L.sh
 
 echo "######_Bienvenue dans le jeu snake_#####"
 
