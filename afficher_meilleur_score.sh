@@ -13,4 +13,3 @@ afficherMeilleurScore(){
 
 }
 
-afficherMeilleurScore
